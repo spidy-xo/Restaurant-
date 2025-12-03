@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eagle Cafe | Elevated Dining</title>
+    
+    <!-- Google Fonts: Playfair Display (Heads) & Montserrat (Body - cleaner/modern) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'eagle-gold': '#C5A059',      /* Muted Champagne Gold */
+                        'eagle-black': '#0f0f0f',     /* Matte Black */
+                        'eagle-charcoal': '#1a1a1a',  /* Dark Grey */
+                        'eagle-text': '#e0e0e0',      /* Off-White */
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        'ultra': '0.3em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0f0f0f;
+            color: #e0e0e0;
+        }
+
+        /* Subtle Fade In Animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Minimal Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f0f0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+        }
+
+        /* Glass Nav - Darker/Sleeker */
+        .glass-nav {
+            background: rgba(15, 15, 15, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        /* Image Hover Effect - Minimal Zoom */
+        .img-zoom-container {
+            overflow: hidden;
+        }
+        .img-zoom {
+            transition: transform 1.5s ease;
+        }
+        .img-zoom-container:hover .img-zoom {
+            transform: scale(1.05);
+        }
+
+        /* Custom Selection Color */
+        ::selection {
+            background: #C5A059;
+            color: #000;
+        }
+    </style>
+</head>
+<body class="antialiased font-sans font-light">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 glass-nav transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-serif text-2xl text-white tracking-widest uppercase hover:text-eagle-gold transition duration-300">
+                        The Eagle
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-12 items-center">
+                    <a href="#vision" class="text-xs uppercase tracking-ultra text-gray-400 hover:text-eagle-gold transition duration-300">Vision</a>
+                    <a href="#menu" class="text-xs uppercase tracking-ultra text-gray-400 hover:text-eagle-gold transition duration-300">Menu</a>
+                    <a href="#aerie" class="text-xs uppercase tracking-ultra text-gray-400 hover:text-eagle-gold transition duration-300">The Aerie</a>
+                    <a href="#reserve" class="px-6 py-2 border border-eagle-gold/50 text-eagle-gold text-xs uppercase tracking-ultra hover:bg-eagle-gold hover:text-black transition duration-300">
+                        Reserve
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-eagle-gold focus:outline-none">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Panel -->
+        <div id="mobile-menu" class="hidden absolute w-full bg-eagle-black border-b border-eagle-gold/10">
+            <div class="flex flex-col items-center py-6 space-y-6">
+                <a href="#vision" class="text-sm uppercase tracking-widest text-white">Vision</a>
+                <a href="#menu" class="text-sm uppercase tracking-widest text-white">Menu</a>
+                <a href="#aerie" class="text-sm uppercase tracking-widest text-white">Gallery</a>
+                <a href="#reserve" class="text-sm uppercase tracking-widest text-eagle-gold">Reserve</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 z-0">
+            <!-- Moody, high-end dark interior or abstract landscape -->
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Moody Luxury Ambience" 
+                 class="w-full h-full object-cover opacity-40 grayscale">
+            <div class="absolute inset-0 bg-gradient-to-t from-eagle-black via-transparent to-eagle-black/80"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 fade-up active">
+            <div class="mb-6 mx-auto w-px h-16 bg-eagle-gold"></div>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white tracking-widest mb-6">
+                THE EAGLE
+            </h1>
+            <p class="text-eagle-gold text-xs md:text-sm uppercase tracking-[0.4em] mb-10">
+                Where Tradition Meets Precision
+            </p>
+            <div class="flex justify-center gap-6">
+                <a href="#menu" class="text-xs uppercase tracking-widest border-b border-transparent hover:border-eagle-gold pb-1 transition duration-300">Explore Menu</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Vision (About) -->
+    <section id="vision" class="py-24 bg-eagle-black relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <!-- Text -->
+                <div class="fade-up order-2 md:order-1">
+                    <h2 class="font-serif text-4xl text-white mb-8">
+                        The View From <br><span class="italic text-eagle-gold">Above</span>
+                    </h2>
+                    <p class="text-gray-400 leading-8 font-light mb-6 text-sm md:text-base">
+                        At The Eagle Cafe, we believe dining is an elevation of the senses. Inspired by the sharp focus and regal nature of the eagle, we strip away the unnecessary to reveal the pure essence of Indian heritage.
+                    </p>
+                    <p class="text-gray-400 leading-8 font-light text-sm md:text-base">
+                        Minimalist presentation. Maximalist flavour. A culinary experience designed for those who appreciate the finer details.
+                    </p>
+                </div>
+                
+                <!-- Image -->
+                <div class="order-1 md:order-2 fade-up delay-200">
+                    <div class="img-zoom-container relative aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=1000&auto=format&fit=crop" 
+                             class="w-full h-full object-cover img-zoom opacity-90" alt="Plating">
+                        <!-- Thin Gold Border Frame offset -->
+                        <div class="absolute inset-0 border border-eagle-gold/30 translate-x-4 translate-y-4 pointer-events-none z-[-1]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-32 bg-eagle-charcoal">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-24 fade-up">
+                <span class="text-eagle-gold text-xs uppercase tracking-ultra">Gastronomy</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-white mt-4">Curated Selections</h2>
+            </div>
+
+            <!-- Category 1 -->
+            <div class="mb-20 fade-up">
+                <div class="flex items-center justify-center mb-10">
+                    <div class="h-px w-8 bg-eagle-gold/50"></div>
+                    <h3 class="mx-4 font-serif text-2xl italic text-white">Ascend <span class="text-xs font-sans not-italic text-gray-500 block text-center mt-1 tracking-widest uppercase">Starters</span></h3>
+                    <div class="h-px w-8 bg-eagle-gold/50"></div>
+                </div>
+                
+                <div class="grid gap-10">
+                    <!-- Item -->
+                    <div class="group text-center">
+                        <h4 class="text-lg text-white font-serif tracking-wide group-hover:text-eagle-gold transition">Smoked Galouti</h4>
+                        <p class="text-xs text-gray-500 mt-2 font-light tracking-wide">Minced lamb / Saffron foam / Micro-greens</p>
+                        <span class="block mt-3 text-eagle-gold text-sm">24</span>
+                    </div>
+                    <!-- Item -->
+                    <div class="group text-center">
+                        <h4 class="text-lg text-white font-serif tracking-wide group-hover:text-eagle-gold transition">White Truffle Malai</h4>
+                        <p class="text-xs text-gray-500 mt-2 font-light tracking-wide">Chargrilled chicken / Truffle oil / Cream reduction</p>
+                        <span class="block mt-3 text-eagle-gold text-sm">22</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="mb-20 fade-up">
+                <div class="flex items-center justify-center mb-10">
+                    <div class="h-px w-8 bg-eagle-gold/50"></div>
+                    <h3 class="mx-4 font-serif text-2xl italic text-white">Soar <span class="text-xs font-sans not-italic text-gray-500 block text-center mt-1 tracking-widest uppercase">Mains</span></h3>
+                    <div class="h-px w-8 bg-eagle-gold/50"></div>
+                </div>
+
+                <div class="grid gap-10">
+                    <div class="group text-center">
+                        <h4 class="text-lg text-white font-serif tracking-wide group-hover:text-eagle-gold transition">The Eagle's Nihari</h4>
+                        <p class="text-xs text-gray-500 mt-2 font-light tracking-wide">Slow-cooked lamb shank / Gold leaf / Bone marrow jus</p>
+                        <span class="block mt-3 text-eagle-gold text-sm">45</span>
+                    </div>
+                    <div class="group text-center">
+                        <h4 class="text-lg text-white font-serif tracking-wide group-hover:text-eagle-gold transition">Black Dairy Dal</h4>
+                        <p class="text-xs text-gray-500 mt-2 font-light tracking-wide">24-hour simmered lentils / House churned butter</p>
+                        <span class="block mt-3 text-eagle-gold text-sm">28</span>
+                    </div>
+                    <div class="group text-center">
+                        <h4 class="text-lg text-white font-serif tracking-wide group-hover:text-eagle-gold transition">Royal Paneer Roulade</h4>
+                        <p class="text-xs text-gray-500 mt-2 font-light tracking-wide">Stuffed cottage cheese / Spiced tomato velvet</p>
+                        <span class="block mt-3 text-eagle-gold text-sm">30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="fade-up">
+                 <div class="flex items-center justify-center mb-10">
+                    <div class="h-px w-8 bg-eagle-gold/50"></div>
+                    <h3 class="mx-4 font-serif text-2xl italic text-white">Land <span class="text-xs font-sans not-italic text-gray-500 block text-center mt-1 tracking-widest uppercase">Dessert</span></h3>
+                    <div class="h-px w-8 bg-eagle-gold/50"></div>
+                </div>
+                
+                <div class="grid gap-10">
+                    <div class="group text-center">
+                        <h4 class="text-lg text-white font-serif tracking-wide group-hover:text-eagle-gold transition">Deconstructed Shahi Tukda</h4>
+                        <p class="text-xs text-gray-500 mt-2 font-light tracking-wide">Brioche / Rabri mousse / Pistachio crumble</p>
+                        <span class="block mt-3 text-eagle-gold text-sm">18</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="#" class="text-xs text-eagle-gold border-b border-eagle-gold uppercase tracking-widest pb-1 hover:text-white hover:border-white transition">View Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Aerie (Gallery) -->
+    <section id="aerie" class="py-24 bg-eagle-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12 fade-up">
+                <h2 class="font-serif text-3xl md:text-4xl text-white">The Aerie</h2>
+                <div class="text-eagle-gold text-xl"><i class="fa-solid fa-feather-pointed"></i></div>
+            </div>
+
+            <!-- Masonry Grid (CSS Grid) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-1 fade-up">
+                <!-- Large Vertical -->
+                <div class="md:col-span-1 md:row-span-2 relative group overflow-hidden h-[600px] md:h-auto">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0" alt="Interior">
+                </div>
+                
+                <!-- Square -->
+                <div class="relative group overflow-hidden h-64 md:h-80">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0" alt="Food Detail">
+                </div>
+
+                <!-- Square -->
+                <div class="relative group overflow-hidden h-64 md:h-80">
+                    <img src="https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0" alt="Cocktail">
+                </div>
+
+                <!-- Wide -->
+                <div class="md:col-span-2 relative group overflow-hidden h-64 md:h-80">
+                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0" alt="Table Setting">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation -->
+    <section id="reserve" class="py-24 bg-eagle-charcoal flex items-center justify-center">
+        <div class="max-w-xl w-full px-6 fade-up">
+            <h2 class="font-serif text-3xl text-center text-white mb-2">Secure Your Table</h2>
+            <p class="text-center text-gray-500 text-xs uppercase tracking-widest mb-10">Limited Seating Available</p>
+            
+            <form class="space-y-6">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="group relative">
+                        <input type="text" class="w-full bg-transparent border-b border-gray-600 text-white py-2 focus:outline-none focus:border-eagle-gold transition-colors placeholder-transparent" id="name" placeholder="Name">
+                        <label for="name" class="absolute left-0 top-2 text-gray-500 text-xs uppercase tracking-wider transition-all group-focus-within:-top-4 group-focus-within:text-eagle-gold group-focus-within:text-[10px]">Name</label>
+                    </div>
+                    <div class="group relative">
+                        <input type="text" class="w-full bg-transparent border-b border-gray-600 text-white py-2 focus:outline-none focus:border-eagle-gold transition-colors placeholder-transparent" id="guests" placeholder="Guests">
+                        <label for="guests" class="absolute left-0 top-2 text-gray-500 text-xs uppercase tracking-wider transition-all group-focus-within:-top-4 group-focus-within:text-eagle-gold group-focus-within:text-[10px]">Guests</label>
+                    </div>
+                </div>
+                <div class="group relative pt-4">
+                     <button type="button" class="w-full py-4 bg-white text-eagle-black text-xs font-bold uppercase tracking-ultra hover:bg-eagle-gold transition duration-300">
+                        Request Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Minimal Footer -->
+    <footer class="bg-eagle-black py-16 border-t border-eagle-gold/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <h3 class="font-serif text-2xl text-white tracking-widest uppercase">The Eagle</h3>
+            </div>
+            
+            <div class="flex space-x-8 mb-6 md:mb-0">
+                <a href="#" class="text-gray-500 hover:text-eagle-gold text-xs uppercase tracking-widest">Instagram</a>
+                <a href="#" class="text-gray-500 hover:text-eagle-gold text-xs uppercase tracking-widest">Facebook</a>
+            </div>
+
+            <div class="text-center md:text-right">
+                <p class="text-gray-500 text-xs tracking-widest mb-1">High Street, Urban District</p>
+                <p class="text-gray-500 text-xs tracking-widest">&copy; 2024 The Eagle Cafe</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS for Animation -->
+    <script>
+        // Toggle Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Intersection Observer for Fade Up
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
